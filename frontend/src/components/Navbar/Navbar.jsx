@@ -12,7 +12,7 @@ const Navbar = ({setShowLogin}) => {
     const logout=()=>{
 localStorage.removeItem("token");
 setToken("");
-Navigate("/")
+      navigate("/")
     }
   return (
     <div className='navbar'>
@@ -33,7 +33,8 @@ Navigate("/")
       {!token?<button onClick={()=>setShowLogin(true)} >Sign In</button>: <div className="navbar-profile">
         <img src={assets.profile_icon} alt="" />
         <ul className="nav-profile-dropdown">
-          <li><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+        <li onClick={() => navigate("/myorders")}><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+
           <hr />
           <li onClick={logout}><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
         </ul>
